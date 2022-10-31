@@ -23,4 +23,20 @@ public class MemberRepositorySupportTest {
             System.out.println(member.getName());
         }
     }
+
+    @Test
+    public void 두번째쿼리(){
+        List<Member> memberList = memberRepositorySupport.findByIdAndName(1L, "userA");
+        for(Member member : memberList){
+            System.out.println(member.getName());
+        }
+    }
+
+    @Test
+    public void 세번째쿼리(){
+        List<Member> memberList = memberRepositorySupport.findByBoolean("userA");
+        for(Member member : memberList){
+            System.out.println(member.getName());
+        }
+    }
 }

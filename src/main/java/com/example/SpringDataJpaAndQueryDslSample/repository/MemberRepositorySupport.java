@@ -2,6 +2,7 @@ package com.example.SpringDataJpaAndQueryDslSample.repository;
 
 import com.example.SpringDataJpaAndQueryDslSample.domain.Member;
 import com.example.SpringDataJpaAndQueryDslSample.domain.QMember;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
@@ -19,11 +20,33 @@ public class MemberRepositorySupport extends QuerydslRepositorySupport {
         this.queryFactory = queryFactory;
     }
 
+    QMember member = QMember.member;
+
     //1. queryDsl 기본 쿼리
     public List<Member> findByName(String name) {
-        QMember member = QMember.member;
+
         return queryFactory.selectFrom(member)
                 .where(member.name.eq(name))
                 .fetch();
     }
+
+    //2. queryDsl 기본 쿼리(조건 2개)
+    public List<Member> findByIdAndName(Long Id, String name) {
+        return queryFactory.selectFrom(member)
+                .where(member.id.eq(Id), member.name.eq(name))
+                .fetch();
+    }
+
+    //3. queryDsl 기본 쿼리(BooleanExpression)
+    public List<Member> findByBoolean(String name) {
+        return queryFactory.selectFrom(member)
+                .where(nameEq(name))
+                .fetch();
+    }
+
+
+    private BooleanExpression nameEq(String name) {
+        return name != null ? member.name.eq(name) : null;
+    }
+
 }
