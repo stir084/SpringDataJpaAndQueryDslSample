@@ -1,11 +1,11 @@
 # SpringDataJpaAndQueryDslSample
 
 
-![#f03c15](buildscript {
+![#f03c15](buildscript {)
 	ext {
 		queryDslVersion = "5.0.0"
 	}
-})
+}
 
 plugins {
 	id 'org.springframework.boot' version '2.7.5'
