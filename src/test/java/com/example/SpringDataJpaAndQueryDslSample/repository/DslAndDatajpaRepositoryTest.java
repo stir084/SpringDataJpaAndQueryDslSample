@@ -11,10 +11,10 @@ import java.util.List;
 
 @SpringBootTest
 @Transactional
-public class dslAndDatajpaRepositoryTest {
+public class DslAndDatajpaRepositoryTest {
 
     @Autowired
-    dslAndDatajpaRepository dslAndDatajpaRepository;
+    DslAndDatajpaRepository dslAndDatajpaRepository;
     //dslAndDatajpaRepository 하나로 queryDsl과 Spring Data Jpa 함께 사용
 
     //1. queryDsl 사용

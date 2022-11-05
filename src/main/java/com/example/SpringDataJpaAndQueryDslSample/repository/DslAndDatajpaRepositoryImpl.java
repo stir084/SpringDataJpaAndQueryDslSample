@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class dslAndDatajpaRepositoryImpl implements dslAndDatajpaRepositoryCustom {
+public class DslAndDatajpaRepositoryImpl implements DslAndDatajpaRepositoryCustom {
 
     private final JPAQueryFactory queryFactory;
 

@@ -4,7 +4,9 @@ import com.example.SpringDataJpaAndQueryDslSample.domain.Member;
 import com.example.SpringDataJpaAndQueryDslSample.domain.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 
-public interface dslAndDatajpaRepository extends JpaRepository<Member, Long>, dslAndDatajpaRepositoryCustom{
 
+public interface DslAndDatajpaRepositoryCustom {
+    List<Member> findByName(String name);
 }
